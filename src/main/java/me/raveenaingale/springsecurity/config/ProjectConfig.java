@@ -1,27 +1,27 @@
 package me.raveenaingale.springsecurity.config;
 
+import org.apache.coyote.Adapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration // config class
-public class ProjectConfig {
+public class ProjectConfig extends WebSecurityConfigurerAdapter {
 
-    @Bean //adds returned value in bean in spring context
-        public UserDetailsService userDetailsService(){
-        var userDetailService = new InMemoryUserDetailsManager();
-        var user = User.withUsername("Raveena").password("123").authorities("read").build();
-
-        userDetailService.createUser(user);
-        return userDetailService;
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return NoOpPasswordEncoder.getInstance();
+    //no request are authenticated
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.httpBasic();
+        http.authorizeRequests()
+           .anyRequest().authenticated();
     }
 }
