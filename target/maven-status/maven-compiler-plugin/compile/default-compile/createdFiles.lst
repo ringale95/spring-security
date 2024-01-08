@@ -1,3 +1,6 @@
+me/raveenaingale/springsecurity/security/SecurityUser.class
+me/raveenaingale/springsecurity/models/User.class
+me/raveenaingale/springsecurity/controllers/HelloController.class
 me/raveenaingale/springsecurity/config/ProjectConfig.class
 me/raveenaingale/springsecurity/SpringSecurityApplication.class
-me/raveenaingale/springsecurity/controllers/HelloController.class
+me/raveenaingale/springsecurity/services/InMemoryUserDetailsService.class

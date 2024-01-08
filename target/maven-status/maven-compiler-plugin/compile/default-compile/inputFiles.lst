@@ -1,3 +1,6 @@
+/Users/ingale.r/code/spring-security/src/main/java/me/raveenaingale/springsecurity/models/User.java
 /Users/ingale.r/code/spring-security/src/main/java/me/raveenaingale/springsecurity/SpringSecurityApplication.java
+/Users/ingale.r/code/spring-security/src/main/java/me/raveenaingale/springsecurity/services/InMemoryUserDetailsService.java
 /Users/ingale.r/code/spring-security/src/main/java/me/raveenaingale/springsecurity/config/ProjectConfig.java
 /Users/ingale.r/code/spring-security/src/main/java/me/raveenaingale/springsecurity/controllers/HelloController.java
+/Users/ingale.r/code/spring-security/src/main/java/me/raveenaingale/springsecurity/security/SecurityUser.java

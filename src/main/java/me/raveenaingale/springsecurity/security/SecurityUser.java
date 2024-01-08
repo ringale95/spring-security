@@ -2,8 +2,11 @@ package me.raveenaingale.springsecurity.security;
 
 import me.raveenaingale.springsecurity.models.User;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -11,12 +14,15 @@ public class SecurityUser implements UserDetails {
 
     private final User user;
 
-    private SecurityUser (User user) {
+    public SecurityUser (User user) {
         this.user = user;
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(()->user.getAuthority());
+        GrantedAuthority authority = new SimpleGrantedAuthority(user.getAuthority());
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(authority);
+        return authorities;
     }
 
     @Override
@@ -31,22 +37,22 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
 }
